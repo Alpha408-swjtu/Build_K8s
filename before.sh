@@ -1,7 +1,5 @@
 #!/bin/bash
 
-su root
-
 #开启ipv4转发，并加载内核参数
 cat << EOF | tee /etc/modules-load.d/k8s.conf
 overlay
@@ -41,7 +39,4 @@ EOF
 
 sh ipvs.sh
 
-#关闭swap
 sed -i '/swap/s/^/#/' /etc/fstab
-
-reboot
