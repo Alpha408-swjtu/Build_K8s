@@ -1,12 +1,14 @@
 #!/bin/bash
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
     echo "参数数量不对"
     exit 1
 fi
 
 ip="$1"
+gw="$2"
 path="/etc/netplan/01-netconfig.yaml"
+
 ctx=$(cat <<EOF
 network:
   version: 2
@@ -15,7 +17,7 @@ network:
       dhcp4: no
       addresses:
         - ${ip}/24
-      gateway4: 192.168.32.2
+      gateway4: ${gw}
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
 EOF

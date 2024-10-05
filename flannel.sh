@@ -120,6 +120,7 @@ spec:
           type: FileOrCreate
 EOF
 )
+echo "$ctx" > "$path"
 
 sed -i 's/docker.io/docker.1panel.live/g' kube-flannel.yaml
 
