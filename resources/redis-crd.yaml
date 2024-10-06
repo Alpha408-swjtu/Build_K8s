@@ -1,0 +1,9 @@
+apiVersion: stable.example.com/v1beta1
+kind: Redis
+metadata: 
+  name: redis-cluster
+spec: 
+  image: xxx.latest
+  port: 6379
+  targetPort: 16379
+  password: xxx
