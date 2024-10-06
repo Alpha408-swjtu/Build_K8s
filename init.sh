@@ -25,9 +25,11 @@ EOF
 
 echo "$ctx" > "$path"
 
+#更换阿里云镜像源
 sed -i 's/cn.archive.ubuntu/mirrors.aliyun/g; s/security.ubuntu/mirrors.aliyun/g'  /etc/apt/sources.list
 apt update
 apt install net-tools vim open-vm-tools open-vm-tools-desktop openssh-server
+#开放ssh端口
 sed -i 's/#Port 22/Port 22/g; s/#PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 
 netplan apply
