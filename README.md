@@ -11,8 +11,8 @@ network:
     ens33:
       dhcp4: no
       addresses:
-        - 192.168.32.140/24
-      gateway4: 192.168.32.2
+        - ip/24
+      gateway4: gateway
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
 
